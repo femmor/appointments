@@ -34,13 +34,6 @@ class App extends Component {
   render() {
     // Destructure appointments from the state
     const {appointments} = this.state
-    // Get the appointments from the state
-    const listApts = appointments.map(item => {
-      const {aptDate, aptNotes, ownerName, petName} = item
-      return (
-        <div>{petName}</div>
-      )
-    })
 
     return (
       <main className="page bg-white" id="petratings">
@@ -48,10 +41,9 @@ class App extends Component {
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                {listApts}
                 <AddAppointments/>
                 <SearchAppointments/>
-                <ListAppointments/>
+                <ListAppointments appointments={appointments}/>
               </div>
             </div>
           </div>

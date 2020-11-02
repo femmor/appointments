@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 
 class ListAppointments extends Component {
     render() {
+        const {appointments} = this.props
+        // Get the appointments from the state
+        const listApts = appointments.map(item => {
+            const {aptDate, aptNotes, ownerName, petName} = item
+            return (
+                <div>{petName}</div>
+            )
+        })
         return (
             <div>
-                <h3>List Appointments</h3>
+                <p>{listApts}</p>
             </div>
         );
     }
