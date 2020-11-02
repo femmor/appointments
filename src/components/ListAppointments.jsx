@@ -4,15 +4,20 @@ import Moment from "react-moment"
 
 class ListAppointments extends Component {
     render() {
-        const {appointments} = this.props
+        const {appointments, deleteAppointment} = this.props
+
         return (
             <>
                 <div className="appointment-list item-list mb-3">
-                    {
-                        appointments.map(item => (
+                            {appointments.map(item => (
                             <div className="pet-item col media py-3" key={item.aptId}>
                                 <div className="mr-3">
-                                    <button className="pet-delete btn btn-sm btn-danger"><FaTimes/></button>
+                                <button
+                                    className="pet-delete btn btn-sm btn-danger"
+                                    onClick={() => deleteAppointment(item)}
+                                >
+                                    <FaTimes />
+                                </button>
                                 </div>
 
                                 <div className="pet-info media-body">
