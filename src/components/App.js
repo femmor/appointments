@@ -18,6 +18,7 @@ class App extends Component {
       formDisplay: false
     }
     this.deleteAppointment = this.deleteAppointment.bind(this)
+    this.toggleForm = this.toggleForm.bind(this)
   }
 
   deleteAppointment = (apt) => {
@@ -27,6 +28,12 @@ class App extends Component {
     this.setState({
       appointments: tempApts
     })
+  }
+
+  toggleForm = () => {
+    this.setState({
+      formDisplay: !this.state.formDisplay
+    }) 
   }
 
   componentDidMount() {
@@ -63,7 +70,7 @@ class App extends Component {
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                <AddAppointments formDisplay={formDisplay} />
+                <AddAppointments formDisplay={formDisplay} toggleForm={this.toggleForm}/>
                 <SearchAppointments/>
                 <ListAppointments appointments={appointments} deleteAppointment={this.deleteAppointment} />
               </div>
