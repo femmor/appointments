@@ -14,7 +14,8 @@ class App extends Component {
 
     this.state = {
       appointments: [],
-      lastIndex: 0
+      lastIndex: 0,
+      formDisplay: false
     }
     this.deleteAppointment = this.deleteAppointment.bind(this)
   }
@@ -54,7 +55,7 @@ class App extends Component {
 
   render() {
     // Destructure appointments from the state
-    const {appointments} = this.state
+    const {appointments, formDisplay} = this.state
 
     return (
       <main className="page bg-white" id="petratings">
@@ -62,9 +63,9 @@ class App extends Component {
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                <AddAppointments/>
+                <AddAppointments formDisplay={formDisplay} />
                 <SearchAppointments/>
-                <ListAppointments appointments={appointments} deleteAppointment={this.deleteAppointment}/>
+                <ListAppointments appointments={appointments} deleteAppointment={this.deleteAppointment} />
               </div>
             </div>
           </div>

@@ -8,6 +8,9 @@ class ListAppointments extends Component {
 
         return (
             <>
+                <div className="apt-add-heading card-header bg-primary text-white">
+                    Appointments
+                </div>
                 <div className="appointment-list item-list mb-3">
                             {appointments.map(item => (
                             <div className="pet-item col media py-3" key={item.aptId}>
