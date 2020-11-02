@@ -8,9 +8,9 @@ class ListAppointments extends Component {
                 <div className="appointment-list item-list mb-3">
                     {
                         appointments.map(item => (
-                            <div className="pet-item col media py-3">
+                            <div className="pet-item col media py-3" key={item.aptId}>
                                 <div className="mr-3">
-                                <button className="pet-delete btn btn-sm btn-danger">X</button>
+                                    <button className="pet-delete btn btn-sm btn-danger">X</button>
                                 </div>
 
                                 <div className="pet-info media-body">

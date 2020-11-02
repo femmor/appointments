@@ -9,7 +9,8 @@ import ListAppointments from "./ListAppointments"
 
 class App extends Component {
   state = {
-    appointments: []
+    appointments: [],
+    lastIndex: 0
   }
 
   componentDidMount() {
@@ -20,6 +21,11 @@ class App extends Component {
     .then(
       result => {
         const apt = result.map(appointment => {
+          appointment.aptId = this.state.lastIndex
+          this.setState({
+            lastIndex: this.state.lastIndex + 1
+          })
+
           return appointment
         })
 
